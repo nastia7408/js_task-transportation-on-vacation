@@ -5,19 +5,19 @@
  */
 function calculateRentalCost(days) {
   const COST_PER_DAY = 40;
-  const BIG__SALE = 50;
-  const DAY__RENT__LONG = 7;
-  const SMOLL__SALE = 20;
-  const DAY__RENT__SHORT = 3;
+  const LONG_TERM_DISCOUNT_AMOUNT = 50;
+  const LONG_TERM_DISCOUNT_DAYS = 7;
+  const SHORT_TERM_DISCOUNT_AMOUNT = 20;
+  const SHORT_TERM_DISCOUNT_DAYS = 3;
 
-  let sum = days * COST_PER_DAY;
+  const sum = days * COST_PER_DAY;
 
-  if (days >= DAY__RENT__LONG) {
-    sum -= BIG__SALE;
+  if (days >= LONG_TERM_DISCOUNT_DAYS) {
+    return sum - LONG_TERM_DISCOUNT_AMOUNT;
   }
 
-  if (days >= DAY__RENT__SHORT && days < DAY__RENT__LONG) {
-    sum -= SMOLL__SALE;
+  if (days >= SHORT_TERM_DISCOUNT_DAYS && days < LONG_TERM_DISCOUNT_DAYS) {
+    return sum - SHORT_TERM_DISCOUNT_AMOUNT;
   }
 
   return sum;
